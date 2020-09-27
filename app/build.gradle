@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.avillamilv.arauthenticator"
+        minSdkVersion 28
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.1'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // Provides ARCore Session and related resources.
+    implementation 'com.google.ar:core:1.19.0'
+    // Provides ArFragment, and other UX resources.
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.17.1'
+    // Alternatively, use ArSceneView without the UX dependency.
+    implementation 'com.google.ar.sceneform:core:1.17.1'
+
+    implementation 'com.google.android.material:material:1.2.1'
+
+}
+
+
+apply plugin: 'com.google.ar.sceneform.plugin'
+
+sceneform.asset('sampledata/tile/tile.obj',  // 'Source Asset Path' specified during import.
+        'default',                           // 'Material Path' specified during import.
+        'sampledata/tile/tile.sfa',          // '.sfa Output Path' specified during import.
+        'src/main/assets/tile')              // '.sfb Output Path' specified during import.
+sceneform.asset('sampledata/car2/dodge.obj',  // 'Source Asset Path' specified during import.
+        'default',                            // 'Material Path' specified during import.
+        'sampledata/car2/dodge.sfa',          // '.sfa Output Path' specified during import.
+        'src/main/assets/car2')               // '.sfb Output Path' specified during import.
+
+sceneform.asset('sampledata/fox/model.obj',  // 'Source Asset Path' specified during import.
+        'default',                           // 'Material Path' specified during import.
+        'sampledata/fox/model.sfa',          // '.sfa Output Path' specified during import.
+        'src/main/assets/fox')               // '.sfb Output Path' specified during import.
+
+sceneform.asset('sampledata/shoe1/Trainers_01.gltf',  // 'Source Asset Path' specified during import.
+        'default',                                    // 'Material Path' specified during import.
+        'sampledata/shoe1/Trainers_01.sfa',           // '.sfa Output Path' specified during import.
+        'src/main/assets/shoe')                       // '.sfb Output Path' specified during import.
+
+repositories {
+    mavenCentral()
+}
+

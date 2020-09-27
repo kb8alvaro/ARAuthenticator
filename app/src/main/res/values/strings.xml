@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ARAuthenticator</string>
+    <string name="model_car_string">car2.sfb</string>
+    <string name="model_fox_string">fox.sfb</string>
+    <string name="model_shoe_string">shoe.sfb</string>
+    <string name="model_tile_string">tile.sfb</string>
+    <string name="button_text_string">Check password</string>
+    <string name="alert_correct_title_string">Correct!</string>
+    <string name="alert_correct_message_string">The password is correct.</string>
+    <string name="alert_correct_string">OK</string>
+    <string name="alert_wrong_title_string">Incorrect!</string>
+    <string name="alert_wrong_message_string">The password is not correct.</string>
+    <string name="alert_wrong_string">Try again</string>
+</resources>
